@@ -26,8 +26,8 @@ class FileController {
             withCacheHeaders {
                 etag { "${file.md5sum}" }
                 generate {
-                    if( file.contentType.startsWith("image") ){
-                        response.contentType = file.contentType
+                    if( file.mimeType.startsWith("image") ){
+                        response.contentType = file.mimeType
                     }else{
                         response.contentType = "application/octet-stream"
                         response.setHeader("Content-disposition", "attachment;filename=${file.filename}")
@@ -40,7 +40,7 @@ class FileController {
 
     def save() {
 
-        params.contentType = params.bytes.contentType
+        params.contentType = params.bytes.mimeType
         params.filename = params.bytes.originalFilename
 
         def fileInstance = new File(params)

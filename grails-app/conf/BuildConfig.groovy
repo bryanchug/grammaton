@@ -21,11 +21,15 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://oss.sonatype.org/content/repositories/snapshots/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.18'
+
+        //Mime Resolver
+        compile 'jmimemagic:jmimemagic:0.1.2'
     }
 
     plugins {
@@ -38,6 +42,9 @@ grails.project.dependency.resolution = {
         if( Environment.isDevelopmentMode() ){
             compile ":console:1.2"
         }
+
+        //Testing
+        test ":spock:0.6"
 
         //resources
         runtime ":resources:1.2-RC1"
