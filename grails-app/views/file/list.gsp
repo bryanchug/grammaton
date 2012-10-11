@@ -1,5 +1,5 @@
 
-<%@ page import="com.aestrea.astrid.domain.File" %>
+<%@ page import="com.aestrea.grammaton.domain.File" %>
 <!doctype html>
 <html>
 	<head>

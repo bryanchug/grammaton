@@ -1,7 +1,7 @@
-package com.aestrea.astrid.test
+package com.aestrea.grammaton.test
 
-import com.aestrea.astrid.domain.*
 import grails.plugin.spock.IntegrationSpec
+import com.aestrea.grammaton.domain.File
 
 class FileSpec extends IntegrationSpec {
 

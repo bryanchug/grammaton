@@ -1,4 +1,4 @@
-package com.aestrea.astrid.model
+package com.aestrea.grammaton.model
 
 abstract class AuditableDomain {
 

@@ -11,7 +11,7 @@ class GrammatonGrailsPlugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Astrid Plugin" // Headline display name of the plugin
+    def title = "Grammaton Plugin" // Headline display name of the plugin
     def author = "Bryan Chug"
     def authorEmail = ""
     def description = '''\
@@ -19,7 +19,7 @@ Brief summary/description of the plugin.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/astrid"
+    def documentation = "http://grails.org/plugin/grammaton"
 
     // Extra (optional) plugin metadata
 

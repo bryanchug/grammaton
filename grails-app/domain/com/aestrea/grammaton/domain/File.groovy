@@ -1,6 +1,6 @@
-package com.aestrea.astrid.domain
+package com.aestrea.grammaton.domain
 
-import com.aestrea.astrid.model.*
+import com.aestrea.grammaton.model.AbstractFile
 
 class File extends AbstractFile {
 

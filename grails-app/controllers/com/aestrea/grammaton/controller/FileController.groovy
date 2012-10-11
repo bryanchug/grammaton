@@ -1,6 +1,6 @@
-package com.aestrea.astrid.controller
+package com.aestrea.grammaton.controller
 
-import com.aestrea.astrid.domain.File
+import com.aestrea.grammaton.domain.File
 
 class FileController {
 
@@ -40,7 +40,7 @@ class FileController {
 
     def save() {
 
-        params.contentType = params.bytes.mimeType
+        params.contentType = params.bytes.contentType
         params.filename = params.bytes.originalFilename
 
         def fileInstance = new File(params)
