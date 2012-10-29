@@ -52,6 +52,7 @@ grails.project.dependency.resolution = {
         runtime ":cached-resources:1.0"
         runtime ":zipped-resources:1.0"
         compile ":lesscss-resources:1.3.0.3"
+        compile ":spring-security-core:1.2.7.3"
 
         //HTML5
         runtime ":modernizr:2.5.3"
