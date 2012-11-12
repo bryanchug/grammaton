@@ -6,6 +6,10 @@ class FileController {
 
     def scaffold = File
 
+    def list(){
+        response.sendError(404)
+    }
+
     def edit(){
         response.sendError(404)
     }
