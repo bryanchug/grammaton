@@ -17,7 +17,7 @@ abstract class AbstractFile {
     }
 
     String toString(){
-        filename
+        filename ?: "File #$id"
     }
 
     static mapping = {
@@ -27,6 +27,20 @@ abstract class AbstractFile {
     def beforeValidate() {
         md5sum = bytes.encodeAsMD5()
         mimeType = Magic.getMagicMatch( bytes ).mimeType
+    }
+
+    static transients = ['isImage', 'fileExtension']
+
+    Boolean getIsImage(){
+        mimeType.startsWith "image/"
+    }
+
+    String getFileExtension(){
+        def matcher = filename =~ /\.([^.]+)$/
+
+        if( matcher.size() ){
+            matcher.getAt( 0 ).getAt( 1 )
+        }
     }
 
 }
