@@ -30,11 +30,15 @@ class FileController {
             withCacheHeaders {
                 etag { "${file.md5sum}" }
                 generate {
+
+                    println "FILE IS RENDERABLE: ${file.isRenderableImage}"
+
                     if( file.isRenderableImage ){
                         response.contentType = file.mimeType
                     }else{
                         response.contentType = "application/octet-stream"
-                        response.setHeader("Content-disposition", "attachment;filename=${file.filename}")
+                        def filename = file.filename ?: (file.id + file.fileExtension)
+                        response.setHeader("Content-Disposition", "attachment; filename=\"${filename}\"")
                     }
                     response.outputStream << content
                 }
