@@ -6,6 +6,8 @@ import org.codehaus.groovy.grails.commons.ApplicationHolder
 
 abstract class AuditableDomain {
 
+    transient springSecurityService
+
     Date lastUpdated
     Date dateCreated
     String createdBy
@@ -31,6 +33,12 @@ abstract class AuditableDomain {
     def beforeInsert (){
         createdBy = getCurrentUsername() ?: createdBy
         updatedBy = createdBy
+    }
+
+    static transients = ['isCreatedByCurrentUser']
+
+    Boolean getIsCreatedByCurrentUser(){
+        createdBy == springSecurityService.currentUser.username
     }
 
 }
