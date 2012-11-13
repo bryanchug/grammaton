@@ -1,7 +1,9 @@
 package com.aestrea.grammaton.model
 
 import net.sf.jmimemagic.Magic
+import groovy.util.logging.Log4j
 
+@Log4j
 abstract class AbstractFile {
 
     String  filename
@@ -26,13 +28,24 @@ abstract class AbstractFile {
 
     def beforeValidate() {
         md5sum = bytes.encodeAsMD5()
-        mimeType = Magic.getMagicMatch( bytes ).mimeType
+        try{
+            mimeType = Magic.getMagicMatch( bytes ).mimeType
+        }catch(e){
+            log.error "MagicMatch error", e
+        }
     }
 
-    static transients = ['isImage', 'fileExtension']
+    static transients = ['isRenderableImage', 'fileExtension']
 
-    Boolean getIsImage(){
-        mimeType.startsWith "image/"
+    Boolean getIsRenderableImage(){
+        mimeType.toLowerCase() in [
+            "image/jpeg",
+            "image/jpg",
+            "image/png",
+            "image/gif",
+            "image/tif",
+            "image/tiff"
+        ]
     }
 
     String getFileExtension(){
