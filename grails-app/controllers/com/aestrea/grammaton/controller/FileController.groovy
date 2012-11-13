@@ -30,7 +30,7 @@ class FileController {
             withCacheHeaders {
                 etag { "${file.md5sum}" }
                 generate {
-                    if( file.mimeType.startsWith("image") ){
+                    if( file.isRenderableImage ){
                         response.contentType = file.mimeType
                     }else{
                         response.contentType = "application/octet-stream"
