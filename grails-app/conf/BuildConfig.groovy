@@ -39,9 +39,7 @@ grails.project.dependency.resolution = {
             export = false
         }
 
-        if( Environment.isDevelopmentMode() ){
-            compile ":console:1.2"
-        }
+        compile ":console:1.2"
 
         //Testing
         test ":spock:0.6"
