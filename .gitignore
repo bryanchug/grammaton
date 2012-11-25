@@ -12,4 +12,5 @@ target
 *.class
 *.iml
 *.idea
+plugin.xml
 
